@@ -96,7 +96,7 @@ export default function Home() {
           priority
         />
         <h1 className='md:text-4xl sm:text-2xl text-lg font-bold mt-10 text-center'>Victor Tamayo Viera</h1>
-        <p className='md:text-xl sm:text-lg text-xs mt-4 text-center'>
+        <p className='md:text-xl sm:text-lg text-xs mt-10 text-center'>
           ¡Hola! Tengo 18 años y soy un estudiante de grado superior en programación (DAM),
           me interesan todo tipo de tecnologías relacionadas con software y
           cada día trato de aprender más que el anterior.
