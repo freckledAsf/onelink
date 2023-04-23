@@ -84,8 +84,9 @@ const socials: Social[] = [
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
-      <div className="relative flex flex-col place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
+    <main className="flex min-h-screen flex-col items-center sm:px-24 p-12">
+      <div className='absolute h-[300px] w-[480px] -translate-x-1/2 rounded-full bg-gradient-radial from-white to-transparent blur-2xl dark:bg-gradient-to-br dark:from-transparent dark:to-blue-700 dark:opacity-10 lg:h-[360px]' />
+      <div className="flex flex-col place-items-center">
         <Image
           className="rounded-full relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
           src="/avatar.png"
@@ -94,22 +95,25 @@ export default function Home() {
           height={148}
           priority
         />
-        <h1 className='md:text-4xl sm:text-2xl text-lg font-bold mt-10'>Victor Tamayo Viera</h1>
-        <p className='md:text-xl sm:text-lg text-xs mt-4'>
+        <h1 className='md:text-4xl sm:text-2xl text-lg font-bold mt-10 text-center'>Victor Tamayo Viera</h1>
+        <p className='md:text-xl sm:text-lg text-xs mt-4 text-center'>
           ¡Hola! Tengo 18 años y soy un estudiante de grado superior en programación (DAM),
-          me interesan todo tipo de tecnologias relacionadas con software y
-          cada dia trato de aprender más que el anterior.
-          <br/><br/>
+          me interesan todo tipo de tecnologías relacionadas con software y
+          cada día trato de aprender más que el anterior.
+          <br /><br />
           Tengo amplia experiencia en desarrollo web, habiendo dominado los lenguajes nativos HTML y CSS,
           y estando actualmente trabajando con los frameworks de JavaScript: React y NextJS,
-          combinandolos con el lenguaje mas sofisticado, TypeScript.
-          <br/><br/>
-          Estas invitado a echar un vistazo a mis proyectos subidos en GitHub.
-          Tambien puedes contactarme de cualquiera de los metodos listados.
+          combinándolos con el lenguaje más sofisticado, TypeScript.
+          <br /><br />
+          <span>
+            Estás invitado a echar un vistazo a mis proyectos subidos en GitHub.
+            También puedes contactarme por cualquiera de los métodos listados.
+          </span>
         </p>
       </div>
+      <div className='absolute -z-20 h-[180px] w-[240px] translate-x-1/3 bg-gradient-conic from-sky-200 via-blue-200 blur-2xl dark:from-sky-900 dark:via-[#0141ff] dark:opacity-40' />
 
-      <div className='flex space-x-4 mt-10'>
+      <div className='flex flex-wrap justify-center gap-3 mt-10'>
         {socials.map(social => (
           <a
             key={social.name}
