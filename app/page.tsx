@@ -55,7 +55,7 @@ const socials: Social[] = [
     </svg>
   }, {
     name: 'github',
-    href: 'https://github.com/freckledAsf',
+    href: 'https://github.com/freckledAsf?tab=repositories',
     icon: <svg
       xmlns="http://www.w3.org/2000/svg"
       version='1.1'
