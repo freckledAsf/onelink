@@ -7,7 +7,6 @@ import { useState } from 'react';
 const iconStyle = 'h-8 w-8 sm:w-11 sm:h-11 shadow-md rounded-md text-white fill-current hover:-translate-y-1 transition ease hover:shadow-xl';
 
 async function copyToClipboard(text: string) {
-  console.log(text);
   return await navigator.clipboard.writeText(text);
 }
 
