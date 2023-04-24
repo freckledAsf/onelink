@@ -84,9 +84,9 @@ const socials: Social[] = [
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center sm:px-24 p-12">
+    <main className="overflow-x-hidden flex min-h-screen flex-col items-center sm:px-24 p-12">
       <div className='absolute h-[300px] w-[480px] -translate-x-1/2 rounded-full bg-gradient-radial from-white to-transparent blur-2xl dark:bg-gradient-to-br dark:from-transparent dark:to-blue-700 dark:opacity-10 lg:h-[360px]' />
-      <div className="flex flex-col place-items-center">
+      <div className="flex flex-col place-items-center max-w-3xl">
         <Image
           className="rounded-full relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
           src="/avatar.png"
@@ -95,8 +95,8 @@ export default function Home() {
           height={148}
           priority
         />
-        <h1 className='md:text-4xl sm:text-2xl text-lg font-bold mt-10 text-center'>Victor Tamayo Viera</h1>
-        <p className='md:text-xl sm:text-lg text-xs mt-10 text-center'>
+        <h1 className='md:text-4xl text-2xl font-bold mt-10 text-center'>Victor Tamayo Viera</h1>
+        <p className='md:text-xl text-lg mt-10 text-center'>
           ¡Hola! Tengo 18 años y soy un estudiante de grado superior en programación (DAM),
           me interesan todo tipo de tecnologías relacionadas con software y
           cada día trato de aprender más que el anterior.
