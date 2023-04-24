@@ -1,7 +1,15 @@
+'use client'
+
 import Image from 'next/image'
 import { ReactElement } from 'react'
+import { useState } from 'react';
 
-const iconStyle = 'h-8 w-8 sm:w-11 sm:h-11 shadow-md rounded-md text-white fill-current';
+const iconStyle = 'h-8 w-8 sm:w-11 sm:h-11 shadow-md rounded-md text-white fill-current hover:-translate-y-1 transition ease hover:shadow-xl';
+
+async function copyToClipboard(text: string) {
+  console.log(text);
+  return await navigator.clipboard.writeText(text);
+}
 
 interface Social {
   name: string,
@@ -42,7 +50,7 @@ const socials: Social[] = [
     </div>
   }, {
     name: 'linkedin',
-    href: '',
+    href: 'https://www.linkedin.com/in/victor-tamayo-viera',
     icon: <svg
       xmlns='http://www.w3.org/2000/svg'
       version='1.1'
@@ -83,6 +91,19 @@ const socials: Social[] = [
 ]
 
 export default function Home() {
+  const [isCopied, setIsCopied] = useState(false);
+  const handleClick = (text: string) => {
+    copyToClipboard(text)
+      .then(() => {
+        setIsCopied(true);
+        setTimeout(() => {
+          setIsCopied(false)
+        }, 1500);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
   return (
     <main className="flex min-h-screen flex-col items-center sm:px-24 p-12">
       <div className='absolute h-[300px] w-[480px] -translate-x-1/2 rounded-full bg-gradient-radial from-white to-transparent blur-2xl dark:bg-gradient-to-br dark:from-transparent dark:to-blue-700 dark:opacity-10 lg:h-[360px]' />
@@ -120,8 +141,10 @@ export default function Home() {
             href={social.href}
             target='_blank'
             rel='noopener noreferrer'
+            onClick={() => handleClick('vtviera67@gmail.com')}
           >
             {social.icon}
+            <span>{isCopied ? 'Copied' : 'Copy'}</span>
           </a>
         ))}
       </div>
