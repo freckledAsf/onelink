@@ -84,8 +84,7 @@ const socials: Social[] = [
 
 export default function Home() {
   return (
-    <main className="overflow-x-hidden flex min-h-screen flex-col items-center sm:px-24 p-12">
-      <div className='absolute h-[300px] w-[480px] -translate-x-1/2 rounded-full bg-gradient-radial from-white to-transparent blur-2xl dark:bg-gradient-to-br dark:from-transparent dark:to-blue-700 dark:opacity-10 lg:h-[360px]' />
+    <main className="bg-cover bg-[url('/light.png')] dark:bg-[url('/dark.png')] bg-top overflow-x-hidden flex min-h-screen flex-col items-center sm:px-24 p-12">
       <div className="flex flex-col place-items-center max-w-3xl">
         <Image
           className="rounded-full relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
@@ -111,8 +110,6 @@ export default function Home() {
           </span>
         </p>
       </div>
-      <div className='absolute -z-20 h-[180px] w-[240px] translate-x-1/3 bg-gradient-conic from-sky-200 via-blue-200 blur-2xl dark:from-sky-900 dark:via-[#0141ff] dark:opacity-40' />
-
       <div className='flex flex-wrap justify-center gap-3 mt-10'>
         {socials.map(social => (
           <a
