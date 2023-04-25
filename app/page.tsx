@@ -1,11 +1,13 @@
 import Image from 'next/image'
 import { ReactElement } from 'react'
+import Script from 'next/script';
 
 const iconStyle = 'h-8 w-8 sm:w-11 sm:h-11 shadow-md rounded-md text-white fill-current hover:-translate-y-1 transition ease hover:shadow-xl';
 
 interface Social {
   name: string,
   href: string,
+  target: '_blank' | '_self',
   icon: ReactElement
 }
 
@@ -13,6 +15,7 @@ const socials: Social[] = [
   {
     name: 'whatsapp',
     href: 'https://wa.me/34648645557',
+    target: '_blank',
     icon: <svg
       xmlns="http://www.w3.org/2000/svg"
       version='1.1'
@@ -26,6 +29,7 @@ const socials: Social[] = [
   }, {
     name: 'email',
     href: 'mailto:vtviera67@gmail.com',
+    target: '_self',
     icon: <div className={iconStyle + ' flex bg-white'}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -43,6 +47,7 @@ const socials: Social[] = [
   }, {
     name: 'linkedin',
     href: 'https://www.linkedin.com/in/victor-tamayo-viera',
+    target: '_blank',
     icon: <svg
       xmlns='http://www.w3.org/2000/svg'
       version='1.1'
@@ -56,6 +61,7 @@ const socials: Social[] = [
   }, {
     name: 'github',
     href: 'https://github.com/freckledAsf?tab=repositories',
+    target: '_blank',
     icon: <svg
       xmlns="http://www.w3.org/2000/svg"
       version='1.1'
@@ -69,6 +75,7 @@ const socials: Social[] = [
   }, {
     name: 'discord',
     href: 'https://discord.gg/R9QX5wrU3d',
+    target: '_blank',
     icon: <div className={iconStyle + ' flex bg-[#5865F2]'}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -82,46 +89,84 @@ const socials: Social[] = [
   }
 ]
 
+function mailto() {
+  const link = document.getElementById('email')!;
+  console.log('loaded');
+  var t: any;
+
+  link.onclick = () => {
+    t = setTimeout(() => {
+      console.log('vtviera67@gmail.com');
+      navigator.clipboard.writeText('vtviera67@gmail.com').then(() => console.log('holi'));
+    }, 500);
+  };
+
+  window.blur = () => {
+    clearTimeout(t);
+  }
+}
+
 export default function Home() {
   return (
-    <main className="bg-cover bg-[url('/light.png')] dark:bg-[url('/dark.png')] bg-top overflow-x-hidden flex min-h-screen flex-col items-center sm:px-24 p-12">
-      <div className="flex flex-col place-items-center max-w-3xl">
-        <Image
-          className="rounded-full relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
-          src="/avatar.png"
-          alt="Avatar"
-          width={148}
-          height={148}
-          priority
-        />
-        <h1 className='md:text-4xl text-2xl font-bold mt-10 text-center'>Victor Tamayo Viera</h1>
-        <p className='md:text-xl text-lg mt-10 text-center'>
-          ¡Hola! Tengo 18 años y soy un estudiante de grado superior en programación (DAM),
-          me interesan todo tipo de tecnologías relacionadas con software y
-          cada día trato de aprender más que el anterior.
-          <br /><br />
-          Tengo amplia experiencia en desarrollo web, habiendo dominado los lenguajes nativos HTML y CSS,
-          y estando actualmente trabajando con los frameworks de JavaScript: React y NextJS,
-          combinándolos con el lenguaje más sofisticado, TypeScript.
-          <br /><br />
-          <span>
-            Estás invitado a echar un vistazo a mis proyectos subidos en GitHub.
-            También puedes contactarme por cualquiera de los métodos listados.
-          </span>
-        </p>
-      </div>
-      <div className='flex flex-wrap justify-center gap-3 mt-10'>
-        {socials.map(social => (
-          <a
-            key={social.name}
-            href={social.href}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            {social.icon}
-          </a>
-        ))}
-      </div>
-    </main>
+    <>
+      <main className="bg-cover bg-[url('/light.png')] dark:bg-[url('/dark.png')] bg-top overflow-x-hidden flex min-h-screen flex-col items-center sm:px-24 p-12">
+        <div className="flex flex-col place-items-center max-w-3xl">
+          <Image
+            className="rounded-full relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+            src="/avatar.png"
+            alt="Avatar"
+            width={148}
+            height={148}
+            priority
+          />
+          <h1 className='md:text-4xl text-2xl font-bold mt-10 text-center'>Victor Tamayo Viera</h1>
+          <p className='md:text-xl text-lg mt-10 text-center'>
+            ¡Hola! Tengo 18 años y soy un estudiante de grado superior en programación (DAM),
+            me interesan todo tipo de tecnologías relacionadas con software y
+            cada día trato de aprender más que el anterior.
+            <br /><br />
+            Tengo amplia experiencia en desarrollo web, habiendo dominado los lenguajes nativos HTML y CSS,
+            y estando actualmente trabajando con los frameworks de JavaScript: React y NextJS,
+            combinándolos con el lenguaje más sofisticado, TypeScript.
+            <br /><br />
+            <span>
+              Estás invitado a echar un vistazo a mis proyectos subidos en GitHub.
+              También puedes contactarme por cualquiera de los métodos listados.
+            </span>
+          </p>
+        </div>
+        <div className='flex flex-wrap justify-center gap-3 mt-10'>
+          {socials.map(social => (
+            <a
+              key={social.name}
+              id={social.name}
+              href={social.href}
+              target={social.target}
+              rel='noopener noreferrer'
+            >
+              {social.icon}
+            </a>
+          ))}
+        </div>
+      </main>
+      <Script id="mailto">
+        {`
+          const link = document.getElementById('email');
+          console.log('loaded');
+          var t;
+        
+          link.onclick = () => {
+            t = setTimeout(() => {
+              console.log('vtviera67@gmail.com');
+              navigator.clipboard.writeText('vtviera67@gmail.com').then(() => console.log('holi'));
+            }, 500);
+          };
+        
+          window.blur = () => {
+            clearTimeout(t);
+          }
+      `}
+      </Script>
+    </>
   )
 }
