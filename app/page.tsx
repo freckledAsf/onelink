@@ -89,23 +89,6 @@ const socials: Social[] = [
   }
 ]
 
-function mailto() {
-  const link = document.getElementById('email')!;
-  console.log('loaded');
-  var t: any;
-
-  link.onclick = () => {
-    t = setTimeout(() => {
-      console.log('vtviera67@gmail.com');
-      navigator.clipboard.writeText('vtviera67@gmail.com').then(() => console.log('holi'));
-    }, 500);
-  };
-
-  window.blur = () => {
-    clearTimeout(t);
-  }
-}
-
 export default function Home() {
   return (
     <>
@@ -152,13 +135,12 @@ export default function Home() {
       <Script id="mailto">
         {`
           const link = document.getElementById('email');
-          console.log('loaded');
           var t;
         
           link.onclick = () => {
             t = setTimeout(() => {
-              console.log('vtviera67@gmail.com');
-              navigator.clipboard.writeText('vtviera67@gmail.com').then(() => console.log('holi'));
+              navigator.clipboard.writeText('vtviera67@gmail.com')
+                .then(() => alert('Email copiado!'));
             }, 500);
           };
         
