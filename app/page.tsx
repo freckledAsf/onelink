@@ -152,7 +152,7 @@ export default function Home() {
           link.onclick = () => {
             t = setTimeout(() => 
               navigator.clipboard.writeText('vtviera67@gmail.com')
-                .then( () => document.getElementById('gmailSpan').style.opacity = '1')
+                .then( () => document.getElementById('emailSpan').style.opacity = '1')
               , 500);
           };
         
