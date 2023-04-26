@@ -153,7 +153,7 @@ export default function Home() {
             t = setTimeout(() => 
               navigator.clipboard.writeText('vtviera67@gmail.com')
                 .then( () => document.getElementById('gmailSpan').style.opacity = '1')
-              , 500));
+              , 500);
           };
         
           window.blur = () => {
