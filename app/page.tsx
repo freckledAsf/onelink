@@ -150,7 +150,10 @@ export default function Home() {
           var t;
         
           link.onclick = () => {
-            t = setTimeout(() => navigator.clipboard.writeText('vtviera67@gmail.com'), 500).then( () => document.getElementById('gmailSpan').style.opacity = '1'));
+            t = setTimeout(() => 
+              navigator.clipboard.writeText('vtviera67@gmail.com')
+                .then( () => document.getElementById('gmailSpan').style.opacity = '1')
+              , 500));
           };
         
           window.blur = () => {
