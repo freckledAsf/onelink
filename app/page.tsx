@@ -8,7 +8,7 @@ interface Social {
   name: string,
   href: string,
   target: '_blank' | '_self',
-  icon: ReactElement
+  icon: ReactElement,
 }
 
 const socials: Social[] = [
@@ -30,7 +30,7 @@ const socials: Social[] = [
     name: 'email',
     href: 'mailto:vtviera67@gmail.com',
     target: '_self',
-    icon: <div className={iconStyle + ' flex bg-white'}>
+    icon: <div className={iconStyle + ' flex bg-white group relative'} tabIndex={0}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         version='1.1'
@@ -43,6 +43,19 @@ const socials: Social[] = [
         <path fill="#ea4335" d="M72 74V48l24 18 24-18v26L96 92" />
         <path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2" />
       </svg>
+      <span
+        id='emailSpan'
+        className='bg-black text-white text-center rounded-full py-[5px] text-xs w-[100px]
+        absolute -left-[50px] top-[45px]
+        sm:w-[160px] sm:text-lg sm:-left-[80px] sm:top-[60px] 
+        transition-opacity ease duration-300 opacity-0
+        group-focus:group-hover:opacity-100
+        dark:invert
+        after:content-[""] after:border-[5px] after:border-x-transparent after:border-t-transparent after:border-b-black 
+        after:absolute after:-top-[10px] after:right-[28px] 
+        after:sm:-top-[10px] after:sm:right-[53px]'>
+        Email copiado!
+      </span>
     </div>
   }, {
     name: 'linkedin',
@@ -138,10 +151,7 @@ export default function Home() {
           var t;
         
           link.onclick = () => {
-            t = setTimeout(() => {
-              navigator.clipboard.writeText('vtviera67@gmail.com')
-                .then(() => alert('Email copiado!'));
-            }, 500);
+            t = setTimeout(() => navigator.clipboard.writeText('vtviera67@gmail.com'), 500);
           };
         
           window.blur = () => {
