@@ -4,6 +4,17 @@ import Script from 'next/script';
 
 const iconStyle = 'h-8 w-8 sm:w-11 sm:h-11 shadow-md rounded-md text-white fill-current hover:-translate-y-1 transition ease hover:shadow-xl';
 
+const getAge = () => {
+  var today = new Date();
+  var birthDate = new Date('2004-12-28');
+  var age = today.getFullYear() - birthDate.getFullYear();
+  var m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+}
+
 interface Social {
   name: string,
   href: string,
@@ -116,7 +127,7 @@ export default function Home() {
           />
           <h1 className='md:text-4xl text-2xl font-bold mt-10 text-center'>Victor Tamayo Viera</h1>
           <p className='md:text-xl text-lg mt-10 text-center'>
-            ¡Hola! Tengo 18 años y soy un estudiante de grado superior en programación (DAM),
+            ¡Hola! Tengo {getAge()} años y soy un estudiante de grado superior en programación (DAM),
             me interesan todo tipo de tecnologías relacionadas con software y
             cada día trato de aprender más que el anterior.
             <br /><br />
