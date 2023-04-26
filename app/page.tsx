@@ -49,7 +49,6 @@ const socials: Social[] = [
         absolute -left-[50px] top-[45px]
         sm:w-[160px] sm:text-lg sm:-left-[80px] sm:top-[60px] 
         transition-opacity ease duration-300 opacity-0
-        group-focus:group-hover:opacity-100
         dark:invert
         after:content-[""] after:border-[5px] after:border-x-transparent after:border-t-transparent after:border-b-black 
         after:absolute after:-top-[10px] after:right-[28px] 
@@ -151,7 +150,7 @@ export default function Home() {
           var t;
         
           link.onclick = () => {
-            t = setTimeout(() => navigator.clipboard.writeText('vtviera67@gmail.com'), 500);
+            t = setTimeout(() => navigator.clipboard.writeText('vtviera67@gmail.com'), 500).then( () => document.getElementById('gmailSpan').style.opacity = '1'));
           };
         
           window.blur = () => {
