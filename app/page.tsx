@@ -127,18 +127,15 @@ export default function Home() {
           />
           <h1 className='md:text-4xl text-2xl font-bold mt-10 text-center'>Victor Tamayo Viera</h1>
           <p className='md:text-xl text-lg mt-10 text-center'>
-            ¡Hola! Tengo {getAge()} años y soy un estudiante de grado superior en programación (DAM),
-            me interesan todo tipo de tecnologías relacionadas con software y
-            cada día trato de aprender más que el anterior.
+            ¡Hola! Tengo {getAge()} años y actualmente curso un grado superior especializado en programación (DAM).
+            Soy un apasionado del desarrollo de aplicaciones y me mantengo en constante aprendizaje con el objetivo de no tener límites a la hora de
+            realizar un proyecto.
             <br /><br />
-            Tengo amplia experiencia en desarrollo web, habiendo dominado los lenguajes nativos HTML y CSS,
-            y estando actualmente trabajando con los frameworks de JavaScript: React y NextJS,
-            combinándolos con el lenguaje más sofisticado, TypeScript.
+            Tengo dominio en los lenguajes nativos HTML y CSS; tambien me encuentro desarrollando aplicaciones web con frameworks de JavaScript.
+            Actualmente mis herramientas preferidas son React con NextJS,  y el lenguaje TypeScript.
             <br /><br />
-            <span>
-              Estás invitado a echar un vistazo a mis proyectos subidos en GitHub.
-              También puedes contactarme por cualquiera de los métodos listados.
-            </span>
+            Te invito a echar un vistazo mis proyectos en GitHub para conocer mi trabajo.
+            Estaré atento a tu mensaje en cualquiera mis redes.
           </p>
         </div>
         <div className='flex flex-wrap justify-center gap-3 mt-10'>
