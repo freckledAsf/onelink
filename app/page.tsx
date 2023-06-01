@@ -135,7 +135,7 @@ export default function Home() {
             Actualmente mis herramientas preferidas son React con NextJS,  y el lenguaje TypeScript.
             <br /><br />
             Te invito a echar un vistazo mis proyectos en GitHub para conocer mi trabajo.
-            Estaré atento a tu mensaje en cualquiera mis redes.
+            Estaré atento a tu mensaje en cualquiera de mis redes.
           </p>
         </div>
         <div className='flex flex-wrap justify-center gap-3 mt-10'>
