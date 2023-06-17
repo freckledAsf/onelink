@@ -1,18 +1,18 @@
 import Image from 'next/image'
 import { ReactElement } from 'react'
-import Script from 'next/script';
+import Script from 'next/script'
 
-const iconStyle = 'h-8 w-8 sm:w-11 sm:h-11 shadow-md rounded-md text-white fill-current hover:-translate-y-1 transition ease hover:shadow-xl';
+const iconStyle = 'h-8 w-8 sm:w-11 sm:h-11 shadow-md rounded-md text-white fill-current hover:-translate-y-1 transition ease hover:shadow-xl'
 
 const getAge = () => {
-  var today = new Date();
-  var birthDate = new Date('2004-12-28');
-  var age = today.getFullYear() - birthDate.getFullYear();
-  var m = today.getMonth() - birthDate.getMonth();
+  var today = new Date()
+  var birthDate = new Date('2004-12-28')
+  var age = today.getFullYear() - birthDate.getFullYear()
+  var m = today.getMonth() - birthDate.getMonth()
   if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
+    age--
   }
-  return age;
+  return age
 }
 
 interface Social {
@@ -154,20 +154,20 @@ export default function Home() {
       </main>
       <Script id="mailto">
         {`
-          const link = document.getElementById('email');
-          var t;
+          const link = document.getElementById('email')
+          var t
         
           link.onclick = () => {
             t = setTimeout(() => 
               navigator.clipboard.writeText('vtviera67@gmail.com')
                 .then( () => document.getElementById('emailSpan').style.opacity = '1')
-              , 500);
-          };
+              , 500)
+          }
         
           window.blur = () => {
-            clearTimeout(t);
+            clearTimeout(t)
           }
-      `}
+        `}
       </Script>
     </>
   )
