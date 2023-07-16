@@ -146,6 +146,7 @@ export default function Home() {
               href={social.href}
               target={social.target}
               rel='noopener noreferrer'
+              aria-label={`Enlace a mi ${social.name}`}
             >
               {social.icon}
             </a>
